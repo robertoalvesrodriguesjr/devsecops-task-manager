@@ -35,6 +35,11 @@ jobs:
           pip install bandit
           bandit -r todo_project -x todo_project/tests -ll || true
 
+      - name: Run SCA with pip-audit
+        run: |
+          pip install pip-audit
+          pip-audit || true
+
       # - name: SonarQube scan
       #   uses: sonarsource/sonarqube-scan-action@v6
       #   env:
