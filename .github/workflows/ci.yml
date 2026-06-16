@@ -61,6 +61,7 @@ jobs:
         with:
           target: 'http://localhost:5000'
           fail_action: false
+          allow_issue_writing: false
 
       # - name: SonarQube scan
       #   uses: sonarsource/sonarqube-scan-action@v6
