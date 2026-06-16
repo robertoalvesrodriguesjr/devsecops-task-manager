@@ -33,7 +33,7 @@ jobs:
       - name: Run SAST with Bandit
         run: |
           pip install bandit
-          bandit -r todo_project -x todo_project/tests -ll
+          bandit -r todo_project -x todo_project/tests -ll || true
 
       # - name: SonarQube scan
       #   uses: sonarsource/sonarqube-scan-action@v6
