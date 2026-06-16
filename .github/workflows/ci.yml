@@ -40,6 +40,10 @@ jobs:
           pip install pip-audit
           pip-audit || true
 
+      - name: Build Docker image
+        run: |
+          docker build -t task-manager:ci .
+
       # - name: SonarQube scan
       #   uses: sonarsource/sonarqube-scan-action@v6
       #   env:
