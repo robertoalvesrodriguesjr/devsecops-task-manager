@@ -30,6 +30,11 @@ jobs:
       - name: Run unit tests with coverage
         run: pytest --cov-report=xml
 
+      - name: Run SAST with Bandit
+        run: |
+          pip install bandit
+          bandit -r todo_project -x todo_project/tests -ll
+
       # - name: SonarQube scan
       #   uses: sonarsource/sonarqube-scan-action@v6
       #   env:
