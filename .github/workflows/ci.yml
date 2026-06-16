@@ -44,6 +44,19 @@ jobs:
         run: |
           docker build -t task-manager:ci .
 
+      - name: Run container
+        run: |
+          docker run -d --name task-manager-test -p 5000:5000 task-manager:ci
+
+      - name: Wait application startup
+        run: |
+          sleep 15
+
+      - name: Health Check
+        run: |
+          curl -I http://localhost:5000
+
+
       # - name: SonarQube scan
       #   uses: sonarsource/sonarqube-scan-action@v6
       #   env:
